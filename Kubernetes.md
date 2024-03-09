@@ -33,4 +33,6 @@
  - **copy** `kubectl cp <pod-name>:/path/to/file /local/path/to/file -c <container-name>` to copy resource from container to local vice-versa possible
  - **describe** `kubectl get <pod|service|job> <resource-name> -o yaml`
 
-
+## APIs
+ - to get pods `https://<k8s-console-host>/api/v1/pod/<namespace>`
+ - to get logs `https://<k8s-console-host>/api/v1/log/<namespace>/<pod-name>`
