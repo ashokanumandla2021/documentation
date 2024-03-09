@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <title>🏠 Home</title>
+    <style>
+        html {
+            display: flex;
+            justify-content: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        div#root {
+            width: 98vw;
+            height: 98vh;
+            display: flex;
+            background-color:rgb(231, 238, 246);
+            border-radius: 1rem;
+        }
+        div.container {
+            width: 100%;
+            height: 100%;
+        }
+        div.section {
+            margin: 1rem;
+        }
+        h2 {
+            font-weight:400;
+            color: rgb(39, 33, 102);
+            padding-left: 0.3rem;
+            margin: 0%;
+        }
+        ul {
+            padding: 0%;
+            margin-top: 0%;
+            display: flex;
+            flex-wrap: wrap;
+            list-style-type: none;
+        }
+        ul > li {
+            padding: 0.3rem;
+        }
+        li a:hover {
+            text-shadow: 1px 1px 1px rgb(38, 122, 155);
+        }
+        a,
+        a:hover,
+        a:focus,
+        a:active {
+            font-size: large;
+            text-decoration: none;
+            color: rgb(19, 99, 99);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script>
+        const data = [
+            {
+                "name": "Links",
+                "value": [
+                    {
+                        "name": "Gmail",
+                        "value": "https://mail.google.com"
+                    },
+                    {
+                        "name": "Youtube",
+                        "value": "https://www.youtube.com"
+                    }
+                ]
+            },
+            {
+                "name": "Local FS",
+                "value": [
+                    {
+                        "name": "User-Home",
+                        "value": "file:///C:/Users/ashok/"
+                    }
+                ]
+            }
+        ];
+        const rootElement = document.getElementById("root");
+        var content = "<div class=\"container\">";
+        for (let i = 0; i < data.length; i++) {
+            var section = data[i];
+            var header = "<h2>" + section["name"] + "</h2>";
+            content += "<div class=\"section\">" + header + "<ul class=\"list\">";
+            for (let j = 0; j < section["value"].length; j++) {
+                var item = section["value"][j];
+                var itemLink = "<li><a href=\"" + item["value"] + "\" target=\"_blank\">" + item["name"] + "</a></li>";
+                content += itemLink;
+            }
+            content += "</ul></div>";
+        }
+        content += "</div>";
+        rootElement.innerHTML = content;
+    </script>
+</body>
+
+</html>
